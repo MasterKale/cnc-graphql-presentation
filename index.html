@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Intro to GraphQL</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/tomorrow-night.css">
+
+    <style>
+      .social-media small {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-media img {
+        margin: 0;
+        padding: 0 10px;
+        height: 35px;
+        width: auto;
+        border: 0 !important;
+        background: none !important;
+        box-shadow: none !important;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title -->
+        <section>
+          <h1>Front End GraphQL</h1>
+          <h3>A rest from all that REST?</h3>
+          <p class="social-media">
+            <small>Matthew Miller</small>
+            <small>
+              <img src="assets/github-brands.svg" alt="Github"> <a href="https://github.com/MasterKale/">MasterKale</a>
+              <img src="assets/twitter-brands.svg" alt="Twitter"> <a href="https://twitter.com/iamkale">@IAmKale</a>
+            </small>
+          </p>
+        </section>
+
+        <!-- Problem w/REST APIs -->
+        <section>
+          <h2>The problem with REST APIs</h2>
+          <div class="fragment">
+            <p>
+              Sometimes you get too much info...
+            </p>
+            <pre><code class="json" data-trim>
+              {
+                "username": "IAmKale",
+                "password": "plaintextpassword",
+                "lastLogin": "2019-01-24T12:35:49.543Z"
+                ...
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <p>
+              ...or not enough!
+            </p>
+            <pre><code class="javascript" data-trim>
+                return axios.get(`${API_URL}/users/1234/`).then((user) =>
+                  axios.get(`${API_URL}/profile/${user.data.profileId}/`)
+                    .then((profile) => ({
+                      ...user,
+                      profileData: profile.data,
+                    });
+                  );
+              </code></pre>
+          </div>
+        </section>
+
+        <!-- What is GraphQL -->
+        <section>
+          <h2>What is GraphQL?</h2>
+        </section>
+
+        <!-- GraphQL as the solution -->
+        <section>
+          <h2>REST &lt; GraphQL?</h2>
+        </section>
+
+        <!-- Live Demo -->
+        <section>
+          <h1>Live Demo</h1>
+        </section>
+
+        <!-- GraphQL Pros -->
+        <section>
+          <h2>GraphQL - Pros</h2>
+          <ul>
+            <li class="fragment">Serve data from many APIs as a single GraphQL API</li>
+            <li class="fragment">Reduce multiple requests into a single request</li>
+            <li class="fragment">Empower clients to request exactly the data they need now, and additional data later</li>
+          </ul>
+        </section>
+
+        <!-- GraphQL Cons -->
+        <section>
+          <h2>GraphQL - Cons</h2>
+          <ul>
+            <li class="fragment">Adds more complexity to the backend</li>
+            <li class="fragment">Caching is tricky</li>
+            <li class="fragment">Requires additional considerations for things like request depth</li>
+          </ul>
+        </section>
+
+        <!-- References -->
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li><a href="https://graphql.org/learn/">https://graphql.org/learn/</a></li>
+            <li><a href="https://www.apollographql.com/docs/react/">https://www.apollographql.com/docs/react/</a></li>
+            <li><a href="https://graphene-python.org/">https://graphene-python.org/</a></li>
+          </ul>
+        </section>
+
+        <!-- Thank you -->
+        <section>
+          <h1>Thank you!</h1>
+          <h3>Questions? Comments?</h3>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

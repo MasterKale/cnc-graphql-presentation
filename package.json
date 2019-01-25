@@ -1,0 +1,17 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "serve -p 8081 ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^10.1.1"
+  }
+}
